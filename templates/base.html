@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en" class="h-full scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}URBN Real Estate — Curated Architectural Residences{%
+      endblock %}
+    </title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                black: "#0f1115",
+                gray: "#6b7280",
+                light: "#f8fafc",
+                border: "#e5e7eb",
+              },
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+              brand: ['"Space Grotesk"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body
+    class="min-h-full flex flex-col bg-white text-gray-900 font-sans antialiased selection:bg-black selection:text-white"
+  >
+    <!-- =========================================================================
+       Top Navigation Bar (URBN)
+       ========================================================================= -->
+    <header
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all"
+    >
+      <div
+        class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"
+      >
+        <!-- Left Category Navigation -->
+        <nav
+          class="hidden lg:flex items-center space-x-6 text-[13.5px] font-medium text-gray-800"
+        >
+          <div class="relative group">
+            <a
+              href="/catalog?category=Houses"
+              class="flex items-center gap-1 hover:text-black transition-colors py-2"
+            >
+              <span>Houses</span>
+              <svg
+                class="w-3.5 h-3.5 text-gray-400 group-hover:text-black transition-transform duration-200 group-hover:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </a>
+            <!-- Dropdown -->
+            <div
+              class="absolute left-0 top-full w-56 bg-white shadow-xl rounded-lg border border-gray-100 p-2 hidden group-hover:block transition-all z-50"
+            >
+              <a
+                href="/catalog?category=Houses"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded font-medium"
+                >All Villas & Houses</a
+              >
+              <a
+                href="/catalog?category=Houses&tag=Modernist"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded text-gray-600"
+                >Modernist Cantilever</a
+              >
+              <a
+                href="/catalog?category=Houses&tag=Waterfront"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded text-gray-600"
+                >Lakefront & Coastal</a
+              >
+              <a
+                href="/catalog?category=Houses&tag=Alpine"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded text-gray-600"
+                >Alpine Chalets</a
+              >
+            </div>
+          </div>
+
+          <div class="relative group">
+            <a
+              href="/catalog?category=Townhomes"
+              class="flex items-center gap-1 hover:text-black transition-colors py-2"
+            >
+              <span>Townhomes</span>
+              <svg
+                class="w-3.5 h-3.5 text-gray-400 group-hover:text-black transition-transform duration-200 group-hover:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </a>
+            <div
+              class="absolute left-0 top-full w-52 bg-white shadow-xl rounded-lg border border-gray-100 p-2 hidden group-hover:block transition-all z-50"
+            >
+              <a
+                href="/catalog?category=Townhomes"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded font-medium"
+                >Urban Townhomes</a
+              >
+              <a
+                href="/catalog?category=Townhomes"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded text-gray-600"
+                >Row Architectural</a
+              >
+            </div>
+          </div>
+
+          <div class="relative group">
+            <a
+              href="/catalog?category=Apartments"
+              class="flex items-center gap-1 hover:text-black transition-colors py-2"
+            >
+              <span>Apartments</span>
+              <svg
+                class="w-3.5 h-3.5 text-gray-400 group-hover:text-black transition-transform duration-200 group-hover:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </a>
+            <div
+              class="absolute left-0 top-full w-52 bg-white shadow-xl rounded-lg border border-gray-100 p-2 hidden group-hover:block transition-all z-50"
+            >
+              <a
+                href="/property/brera-glass-penthouse"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded font-medium"
+                >Sky Penthouses</a
+              >
+              <a
+                href="/catalog?category=Apartments"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded text-gray-600"
+                >Lofts & Duplexes</a
+              >
+            </div>
+          </div>
+
+          <div class="relative group">
+            <a
+              href="/catalog?category=Land"
+              class="flex items-center gap-1 hover:text-black transition-colors py-2"
+            >
+              <span>Land</span>
+              <svg
+                class="w-3.5 h-3.5 text-gray-400 group-hover:text-black transition-transform duration-200 group-hover:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </a>
+            <div
+              class="absolute left-0 top-full w-52 bg-white shadow-xl rounded-lg border border-gray-100 p-2 hidden group-hover:block transition-all z-50"
+            >
+              <a
+                href="/catalog?category=Land"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded font-medium"
+                >Building Plots</a
+              >
+              <a
+                href="/catalog?category=Land"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded text-gray-600"
+                >Vineyards & Groves</a
+              >
+            </div>
+          </div>
+
+          <div class="relative group">
+            <a
+              href="/catalog?category=Commercial"
+              class="flex items-center gap-1 hover:text-black transition-colors py-2"
+            >
+              <span>Commercial</span>
+              <svg
+                class="w-3.5 h-3.5 text-gray-400 group-hover:text-black transition-transform duration-200 group-hover:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </a>
+            <div
+              class="absolute left-0 top-full w-52 bg-white shadow-xl rounded-lg border border-gray-100 p-2 hidden group-hover:block transition-all z-50"
+            >
+              <a
+                href="/catalog?category=Commercial"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded font-medium"
+                >Boutique Galleries</a
+              >
+              <a
+                href="/catalog?category=Commercial"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded text-gray-600"
+                >Architectural Studios</a
+              >
+            </div>
+          </div>
+        </nav>
+
+        <!-- Center Brand Logo: URBN -->
+        <div class="flex items-center justify-center">
+          <a
+            href="/"
+            class="font-brand text-2xl sm:text-3xl font-bold tracking-tight text-black hover:opacity-90 transition-opacity"
+          >
+            URBN
+          </a>
+        </div>
+
+        <!-- Right Secondary Navigation -->
+        <div
+          class="hidden lg:flex items-center space-x-6 text-[13.5px] font-medium"
+        >
+          <a
+            href="#mortgage-calculator-section"
+            class="text-gray-800 hover:text-black transition-colors"
+          >
+            Loans
+          </a>
+          <div class="relative group">
+            <a
+              href="#"
+              class="flex items-center gap-1 text-gray-800 hover:text-black transition-colors py-2"
+            >
+              <span>Resources</span>
+              <svg
+                class="w-3.5 h-3.5 text-gray-400 group-hover:text-black transition-transform duration-200 group-hover:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </a>
+            <div
+              class="absolute right-0 top-full w-48 bg-white shadow-xl rounded-lg border border-gray-100 p-2 hidden group-hover:block transition-all z-50"
+            >
+              <a
+                href="#"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded"
+                >Market Intelligence</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded"
+                >Architectural Guide</a
+              >
+              <a
+                href="#"
+                class="block px-3 py-2 text-xs hover:bg-gray-50 rounded"
+                >Financing Calculator</a
+              >
+            </div>
+          </div>
+          <button
+            onclick="openAuthModal('signin')"
+            class="text-gray-800 hover:text-black transition-colors"
+          >
+            Sign In
+          </button>
+          <button
+            onclick="openAuthModal('signup')"
+            class="bg-black text-white hover:bg-gray-800 transition-colors px-4 py-2 rounded-md text-xs font-semibold tracking-wide"
+          >
+            Sign Up
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex items-center space-x-3 lg:hidden">
+          <button
+            id="mobile-menu-toggle"
+            class="p-2 text-gray-700 hover:text-black focus:outline-none"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden border-t border-gray-100 bg-white px-4 pt-3 pb-6 space-y-3"
+      >
+        <div class="grid grid-cols-2 gap-2 text-sm font-medium text-gray-700">
+          <a
+            href="/catalog?category=Houses"
+            class="py-2 px-3 rounded hover:bg-gray-50"
+            >Houses</a
+          >
+          <a
+            href="/catalog?category=Townhomes"
+            class="py-2 px-3 rounded hover:bg-gray-50"
+            >Townhomes</a
+          >
+          <a
+            href="/catalog?category=Apartments"
+            class="py-2 px-3 rounded hover:bg-gray-50"
+            >Apartments</a
+          >
+          <a
+            href="/catalog?category=Land"
+            class="py-2 px-3 rounded hover:bg-gray-50"
+            >Land</a
+          >
+          <a
+            href="/catalog?category=Commercial"
+            class="py-2 px-3 rounded hover:bg-gray-50"
+            >Commercial</a
+          >
+          <a href="/catalog" class="py-2 px-3 rounded hover:bg-gray-50"
+            >All Listings</a
+          >
+        </div>
+        <div
+          class="pt-3 border-t border-gray-100 flex items-center justify-between"
+        >
+          <button
+            onclick="openAuthModal('signin')"
+            class="text-sm font-medium text-gray-700"
+          >
+            Sign In
+          </button>
+          <button
+            onclick="openAuthModal('signup')"
+            class="bg-black text-white text-xs font-semibold px-4 py-2 rounded"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================================================================
+       Main Content Block
+       ========================================================================= -->
+    <main class="flex-grow">{% block content %}{% endblock %}</main>
+
+    <!-- =========================================================================
+       Global Footer
+       ========================================================================= -->
+    <footer class="bg-white border-t border-gray-200 mt-20 pt-16 pb-12">
+      <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+          <div class="md:col-span-2">
+            <span
+              class="font-brand text-2xl font-bold tracking-tight text-black"
+              >URBN</span
+            >
+            <p class="mt-4 text-sm text-gray-500 max-w-sm leading-relaxed">
+              The premier global marketplace for modernist, architectural, and
+              ecologically distinguished residences. Curated for discerning
+              buyers, architects, and collectors worldwide.
+            </p>
+            <div class="mt-6 flex items-center space-x-4 text-gray-400">
+              <span class="text-xs"
+                >© 2026 URBN Real Estate Group S.p.A. All rights reserved.</span
+              >
+            </div>
+          </div>
+
+          <div>
+            <h4
+              class="text-xs font-bold uppercase tracking-wider text-gray-900 mb-4"
+            >
+              Properties
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>
+                <a href="/catalog?category=Houses" class="hover:text-black"
+                  >Modernist Villas</a
+                >
+              </li>
+              <li>
+                <a href="/catalog?category=Apartments" class="hover:text-black"
+                  >Sky Penthouses</a
+                >
+              </li>
+              <li>
+                <a href="/catalog?tag=Alpine" class="hover:text-black"
+                  >Alpine Chalets</a
+                >
+              </li>
+              <li>
+                <a href="/catalog?tag=Waterfront" class="hover:text-black"
+                  >Waterfront Estates</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="text-xs font-bold uppercase tracking-wider text-gray-900 mb-4"
+            >
+              Platform
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>
+                <a href="#mortgage-calculator-section" class="hover:text-black"
+                  >Mortgage Engine</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-black">Floors Partner Agency</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-black">Architectural Archives</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-black">Private Client Office</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="text-xs font-bold uppercase tracking-wider text-gray-900 mb-4"
+            >
+              Inquiries
+            </h4>
+            <p class="text-sm text-gray-500 mb-2">Concierge desk</p>
+            <p class="text-sm font-semibold text-gray-900">+39 0824 551 890</p>
+            <p class="text-xs text-gray-500 mt-1">concierge@urbn-estates.com</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =========================================================================
+       Shared Modal: Auth (Sign In / Sign Up)
+       ========================================================================= -->
+    <div
+      id="auth-modal"
+      class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4"
+    >
+      <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-8 relative">
+        <button
+          onclick="closeAuthModal()"
+          class="absolute top-4 right-4 text-gray-400 hover:text-black"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+        <div class="text-center mb-6">
+          <h3 class="font-brand text-2xl font-bold" id="auth-modal-title">
+            Welcome to URBN
+          </h3>
+          <p class="text-xs text-gray-500 mt-1">
+            Access curated architectural listings and private showings.
+          </p>
+        </div>
+        <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
+          <div>
+            <label
+              class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1"
+              >Email address</label
+            >
+            <input
+              type="email"
+              required
+              placeholder="name@example.com"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-black"
+            />
+          </div>
+          <div>
+            <label
+              class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1"
+              >Password</label
+            >
+            <input
+              type="password"
+              required
+              placeholder="••••••••"
+              class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-black"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors"
+          >
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function openAuthModal(mode) {
+        const modal = document.getElementById("auth-modal");
+        const title = document.getElementById("auth-modal-title");
+        if (modal) {
+          title.textContent =
+            mode === "signup" ? "Create an URBN Account" : "Sign In to URBN";
+          modal.classList.remove("hidden");
+          modal.classList.add("flex");
+        }
+      }
+      function closeAuthModal() {
+        const modal = document.getElementById("auth-modal");
+        if (modal) {
+          modal.classList.add("hidden");
+          modal.classList.remove("flex");
+        }
+      }
+      function handleAuthSubmit(e) {
+        e.preventDefault();
+        closeAuthModal();
+        showToast("Welcome to URBN portfolio services", "✓");
+      }
+    </script>
+
+    <!-- Lucide icon activator -->
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <!-- Base JS -->
+    <script src="/static/js/app.js"></script>
+    {% block extra_scripts %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,472 @@
+[
+  {
+    "id": "benevento-villa",
+    "title": "Contemporary Alpine Villa",
+    "subtitle": "Spacious eco-friendly modernist residence nestled in Benevento",
+    "price": 1528950,
+    "price_formatted": "$1,528,950",
+    "location": "Benevento, Italy",
+    "city": "Benevento",
+    "country": "Italy",
+    "area_sqm": 233,
+    "floors": 2,
+    "beds": 4,
+    "baths": 5,
+    "category": "Houses",
+    "property_type": "Single Family Luxury Villa",
+    "year_built": 2024,
+    "lot_size_sqm": 1450,
+    "garage_spaces": 3,
+    "energy_rating": "A4 (Nearly Zero Energy)",
+    "featured": true,
+    "agency": {
+      "name": "Floors",
+      "badge": "🛡️",
+      "tagline": "Estate agency",
+      "logo": "/static/images/extracted/agency_logo.png",
+      "agent_name": "Alessandro Moretti",
+      "agent_role": "Senior Architectural Partner",
+      "agent_phone": "+39 0824 551 890",
+      "agent_email": "a.moretti@floors-realty.it",
+      "agent_photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+    },
+    "hero_images": {
+      "main": "/static/images/extracted/villa_hero_pool.jpg",
+      "mid_top": "/static/images/extracted/crop_mid_top.jpg",
+      "mid_bottom": "/static/images/extracted/crop_mid_bottom.jpg",
+      "right": "/static/images/extracted/crop_right.jpg"
+    },
+    "total_photos": 32,
+    "tags": ["Swimming pool", "Mountain view"],
+    "description": "Up for sale is a spacious home in Benevento, Italy, nestled in a picturesque setting! This exceptional eco-friendly residence is characterized by quality contemporary architecture, striking black-and-white cantilevered volumes, an integrated heated swimming pool and spa, and a seamless indoor-outdoor alfresco dining pavilion. Featuring 233 m² of masterfully designed interior spaces across two light-flooded levels, this private oasis offers generous open-plan living, a chef's kitchen opening to the terrace, four serene bedroom suites, and five designer bathrooms with panoramic mountain views.",
+    "gallery_photos": [
+      {
+        "url": "/static/images/extracted/villa_hero_pool.jpg",
+        "caption": "Resort-Style Modernist Residence with Swimming Pool & Alfresco Pavilion"
+      },
+      {
+        "url": "/static/images/extracted/crop_mid_top.jpg",
+        "caption": "Cantilevered Upper Level Master Suite with Floor-to-Ceiling Glazing"
+      },
+      {
+        "url": "/static/images/extracted/crop_mid_bottom.jpg",
+        "caption": "Heated Saline Swimming Pool, In-Ground Spa & Sun Lounging Deck"
+      },
+      {
+        "url": "/static/images/extracted/crop_right.jpg",
+        "caption": "Covered Alfresco Dining Pavilion & Seamless Indoor-Outdoor Entertaining"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Double-Height Living Pavilion with Floor-to-Ceiling Glazing"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Boffi Architectural Kitchen with Monolithic Stone Island"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Primary Bedroom Suite with Direct Balcony Access"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Ensuite Spa Bathroom in Honed Italian Travertine"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Subterranean Infinity Plunge Pool & Sun Deck"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Exterior Sunset View across the Mountain Ridge"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Al Fresco Dining Terrace with Lake Vista"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Bespoke Wine Cellar & Tasting Salon"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Cantilevered Glass Walkway & Private Garden"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Surrounding Alpine Panorama & Lake Setting"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Second Bedroom Suite with Custom Millwork"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Private Executive Office with Mountain View"
+      }
+    ],
+    "technical_specifications": {
+      "General": {
+        "Property Type": "Detached Architectural Villa",
+        "Architectural Style": "Contemporary Minimalist / Brutalist-Organic",
+        "Year Completed": "2024",
+        "Condition": "Brand New / Turnkey",
+        "Living Area": "233 m² (2,508 sq ft)",
+        "Total Usable Area": "385 m² (including terraces & garage)",
+        "Lot / Land Size": "1,450 m² (0.36 acres)",
+        "Orientation": "South-Southwest (Optimal passive solar gain)"
+      },
+      "Interior & Layout": {
+        "Levels / Floors": "2 above ground + 1 subterranean level",
+        "Bedrooms": "4 (including 2 Primary Suites with private dressing)",
+        "Bathrooms": "5 (4 en-suite + 1 powder room)",
+        "Ceiling Height": "3.2 meters (10.5 ft) finished ceilings",
+        "Flooring": "Continuous Italian Travertine & brushed smoked Oak",
+        "Kitchen": "Custom Boffi cabinetry with Gaggenau 400 series appliances",
+        "Fireplace": "Stûv suspended panoramic wood-burning fireplace"
+      },
+      "Energy & Systems": {
+        "Energy Performance Certificate": "A4 (NZEB - Nearly Zero Energy Building)",
+        "Heating": "Geothermal heat pump with zoned underfloor radiant heating",
+        "Cooling": "Radiant ceiling cooling with integrated dehumidification",
+        "Ventilation": "Zehnder mechanical ventilation with heat recovery (HRV 94%)",
+        "Solar Power": "12.4 kWp integrated photovoltaic array + 15 kWh battery",
+        "Smart Automation": "Full KNX building control system (lighting, HVAC, shading)",
+        "Glazing": "Schüco floor-to-ceiling triple-glazed acoustic low-E glass"
+      },
+      "Exterior & Amenities": {
+        "Views": "Lake view & Mountain view (unobstructed 270° panorama)",
+        "Terrace Area": "120 m² cantilevered wrap-around deck",
+        "Swimming Pool": "Heated saline infinity plunge pool with automatic cover",
+        "Parking": "3-car subterranean garage + 2 exterior guest spaces",
+        "EV Charging": "Two 22kW fast-charging stations",
+        "Security": "Perimeter biometric sensors, HD thermal CCTV & secure safe room"
+      }
+    },
+    "floor_plans": [
+      {
+        "level": "Ground Floor (Level 1)",
+        "area": "128 m²",
+        "description": "Open-concept living pavilion, dining salon, show kitchen, preparation pantry, guest suite with bath, powder room, and direct access to the 80 m² terrace.",
+        "image": "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "level": "Upper Level (Level 2)",
+        "area": "105 m²",
+        "description": "Primary bedroom retreat with panoramic cantilevered balcony, walk-in dressing room, spa ensuite, plus two additional bedroom suites.",
+        "image": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=80"
+      }
+    ]
+  },
+  {
+    "id": "dolomites-alpine-chalet",
+    "title": "Dolomites Cantilever Chalet",
+    "subtitle": "Raw concrete and cedar glass chalet facing the Tofane peaks",
+    "price": 2890000,
+    "price_formatted": "$2,890,000",
+    "location": "Cortina d'Ampezzo, Italy",
+    "city": "Cortina d'Ampezzo",
+    "country": "Italy",
+    "area_sqm": 340,
+    "floors": 3,
+    "beds": 5,
+    "baths": 6,
+    "category": "Houses",
+    "property_type": "Alpine Luxury Chalet",
+    "year_built": 2023,
+    "lot_size_sqm": 2100,
+    "garage_spaces": 4,
+    "energy_rating": "A4 Passivhaus",
+    "featured": true,
+    "agency": {
+      "name": "Floors",
+      "badge": "🛡️",
+      "tagline": "Estate agency",
+      "logo": "/static/images/extracted/agency_logo.png",
+      "agent_name": "Elena Valenti",
+      "agent_role": "Managing Director - Alps",
+      "agent_phone": "+39 0436 882 140",
+      "agent_email": "e.valenti@floors-realty.it",
+      "agent_photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+    },
+    "hero_images": {
+      "main": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80",
+      "mid_top": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      "mid_bottom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "right": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+    },
+    "total_photos": 28,
+    "tags": ["Ski-in/Ski-out", "Mountain view"],
+    "description": "Perched on a pristine alpine slope in Cortina d'Ampezzo, this masterwork of alpine architecture integrates seamlessly into the Dolomite UNESCO heritage landscape. Features charred larch wood cladding, floor-to-ceiling glass pavilions, private Finnish stone sauna, and an outdoor heated plunge pool.",
+    "gallery_photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Chalet Exterior in Winter"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Cantilevered Living Wing"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Central Fireplace Lounge"
+      }
+    ],
+    "technical_specifications": {
+      "General": {
+        "Property Type": "Alpine Luxury Chalet",
+        "Architectural Style": "Modern Alpine Minimalist",
+        "Year Completed": "2023",
+        "Living Area": "340 m²",
+        "Lot / Land Size": "2,100 m²"
+      },
+      "Interior & Layout": {
+        "Levels / Floors": "3 floors",
+        "Bedrooms": "5 suites",
+        "Bathrooms": "6 bathrooms",
+        "Wellness": "Cedar Finnish sauna & steam room"
+      }
+    }
+  },
+  {
+    "id": "lake-como-waterfront-villa",
+    "title": "Lake Como Waterfront Glass Villa",
+    "subtitle": "Direct lakefront residence with private pier and botanical gardens",
+    "price": 4650000,
+    "price_formatted": "$4,650,000",
+    "location": "Bellagio, Lake Como, Italy",
+    "city": "Bellagio",
+    "country": "Italy",
+    "area_sqm": 410,
+    "floors": 2,
+    "beds": 5,
+    "baths": 6,
+    "category": "Houses",
+    "property_type": "Waterfront Villa",
+    "year_built": 2022,
+    "lot_size_sqm": 3200,
+    "garage_spaces": 4,
+    "energy_rating": "A+",
+    "featured": true,
+    "agency": {
+      "name": "Floors",
+      "badge": "🛡️",
+      "tagline": "Estate agency",
+      "logo": "/static/images/extracted/agency_logo.png",
+      "agent_name": "Alessandro Moretti",
+      "agent_role": "Senior Architectural Partner",
+      "agent_phone": "+39 0824 551 890",
+      "agent_email": "a.moretti@floors-realty.it",
+      "agent_photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+    },
+    "hero_images": {
+      "main": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
+      "mid_top": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+      "mid_bottom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
+      "right": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+    },
+    "total_photos": 36,
+    "tags": ["Lake view", "Private dock"],
+    "description": "An exceptional modernist waterfront trophy estate on the shores of Lake Como. Boasting 60 meters of private water frontage, private boat mooring, cantilevered infinity pool, and serene Japanese-Italian fusion landscape architecture.",
+    "gallery_photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Waterfront Villa Exterior"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Infinity Pool over Lake Como"
+      }
+    ],
+    "technical_specifications": {
+      "General": {
+        "Property Type": "Waterfront Trophy Residence",
+        "Architectural Style": "International Modernist",
+        "Year Completed": "2022",
+        "Living Area": "410 m²",
+        "Lot / Land Size": "3,200 m²"
+      },
+      "Interior & Layout": {
+        "Levels / Floors": "2 floors",
+        "Bedrooms": "5 suites",
+        "Bathrooms": "6 bathrooms",
+        "Amenities": "Private deep-water dock & Riva boathouse"
+      }
+    }
+  },
+  {
+    "id": "brera-glass-penthouse",
+    "title": "Brera Botanical Sky Penthouse",
+    "subtitle": "Two-level glass residence with private rooftop pool in Milan's historic heart",
+    "price": 1980000,
+    "price_formatted": "$1,980,000",
+    "location": "Brera, Milan, Italy",
+    "city": "Milan",
+    "country": "Italy",
+    "area_sqm": 195,
+    "floors": 2,
+    "beds": 3,
+    "baths": 3,
+    "category": "Apartments",
+    "property_type": "Luxury Penthouse",
+    "year_built": 2023,
+    "lot_size_sqm": 280,
+    "garage_spaces": 2,
+    "energy_rating": "A+",
+    "featured": true,
+    "agency": {
+      "name": "Floors",
+      "badge": "🛡️",
+      "tagline": "Estate agency",
+      "logo": "/static/images/extracted/agency_logo.png",
+      "agent_name": "Elena Valenti",
+      "agent_role": "Managing Director - Milan",
+      "agent_phone": "+39 02 8901 332",
+      "agent_email": "e.valenti@floors-realty.it",
+      "agent_photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+    },
+    "hero_images": {
+      "main": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
+      "mid_top": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
+      "mid_bottom": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
+      "right": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80"
+    },
+    "total_photos": 22,
+    "tags": ["Skyline view", "Rooftop pool"],
+    "description": "Overlooking the vibrant art quarter of Brera, this sky penthouse commands 360-degree views of the Milan skyline and Duomo spires. Complete with a private glass elevator, landscaped rooftop terrace with heated plunge pool, and custom Molteni & C furnishings.",
+    "gallery_photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Sky Penthouse Living Space"
+      }
+    ],
+    "technical_specifications": {
+      "General": {
+        "Property Type": "Duplex Sky Penthouse",
+        "Living Area": "195 m²",
+        "Terrace Area": "85 m²"
+      },
+      "Interior & Layout": {
+        "Levels / Floors": "2 floors",
+        "Bedrooms": "3 bedrooms",
+        "Bathrooms": "3 bathrooms"
+      }
+    }
+  },
+  {
+    "id": "tuscany-stone-monolith",
+    "title": "Val d'Orcia Monolithic Stone Estate",
+    "subtitle": "Contemporary glass & historic sandstone residence amidst cypress rolling hills",
+    "price": 2150000,
+    "price_formatted": "$2,150,000",
+    "location": "Val d'Orcia, Tuscany, Italy",
+    "city": "Siena",
+    "country": "Italy",
+    "area_sqm": 380,
+    "floors": 2,
+    "beds": 5,
+    "baths": 5,
+    "category": "Houses",
+    "property_type": "Country Estate",
+    "year_built": 2022,
+    "lot_size_sqm": 8500,
+    "garage_spaces": 3,
+    "energy_rating": "A",
+    "featured": false,
+    "agency": {
+      "name": "Floors",
+      "badge": "🛡️",
+      "tagline": "Estate agency",
+      "logo": "/static/images/extracted/agency_logo.png",
+      "agent_name": "Alessandro Moretti",
+      "agent_role": "Senior Architectural Partner",
+      "agent_phone": "+39 0824 551 890",
+      "agent_email": "a.moretti@floors-realty.it",
+      "agent_photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+    },
+    "hero_images": {
+      "main": "https://images.unsplash.com/photo-1524813686514-a57563d77d66?auto=format&fit=crop&w=1200&q=80",
+      "mid_top": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "mid_bottom": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80",
+      "right": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+    },
+    "total_photos": 24,
+    "tags": ["Vineyard view", "Pool"],
+    "description": "Set within a UNESCO biosphere reserve in Val d'Orcia, this estate fuses authentic 17th-century Tuscan masonry with a striking modern glass pavilion. Surrounded by ancient olive groves, sangiovese vineyards, and sunset vistas.",
+    "gallery_photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1524813686514-a57563d77d66?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Tuscan Stone Estate"
+      }
+    ],
+    "technical_specifications": {
+      "General": {
+        "Property Type": "Country Estate",
+        "Living Area": "380 m²",
+        "Lot / Land Size": "8,500 m²"
+      },
+      "Interior & Layout": {
+        "Bedrooms": "5 bedrooms",
+        "Bathrooms": "5 bathrooms"
+      }
+    }
+  },
+  {
+    "id": "amalfi-cliff-residence",
+    "title": "Positano Cantilevered Cliff Villa",
+    "subtitle": "Dramatic modernist villa suspended above the Tyrrhenian Sea",
+    "price": 3200000,
+    "price_formatted": "$3,200,000",
+    "location": "Positano, Amalfi Coast, Italy",
+    "city": "Positano",
+    "country": "Italy",
+    "area_sqm": 285,
+    "floors": 3,
+    "beds": 4,
+    "baths": 4,
+    "category": "Houses",
+    "property_type": "Coastal Luxury Villa",
+    "year_built": 2023,
+    "lot_size_sqm": 900,
+    "garage_spaces": 2,
+    "energy_rating": "A+",
+    "featured": false,
+    "agency": {
+      "name": "Floors",
+      "badge": "🛡️",
+      "tagline": "Estate agency",
+      "logo": "/static/images/extracted/agency_logo.png",
+      "agent_name": "Alessandro Moretti",
+      "agent_role": "Senior Architectural Partner",
+      "agent_phone": "+39 0824 551 890",
+      "agent_email": "a.moretti@floors-realty.it",
+      "agent_photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+    },
+    "hero_images": {
+      "main": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+      "mid_top": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+      "mid_bottom": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "right": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+    },
+    "total_photos": 26,
+    "tags": ["Sea view", "Cliffside"],
+    "description": "Carved directly into the limestone cliffs of Positano, this villa features tiered white concrete cantilevered decks, private funicular access from the coastal road, and an infinity pool that merges seamlessly with the Tyrrhenian horizon.",
+    "gallery_photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80",
+        "caption": "Cliffside Positano Villa"
+      }
+    ],
+    "technical_specifications": {
+      "General": {
+        "Property Type": "Coastal Luxury Villa",
+        "Living Area": "285 m²",
+        "Lot / Land Size": "900 m²"
+      },
+      "Interior & Layout": {
+        "Bedrooms": "4 bedrooms",
+        "Bathrooms": "4 bathrooms"
+      }
+    }
+  }
+]

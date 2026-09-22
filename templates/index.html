@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block title %}URBN Real Estate — Architectural Properties & Luxury Homes{% endblock %}
+
+{% block content %}
+<div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+  <!-- =========================================================================
+       Hero Feature Listing Banner (Benevento Villa)
+       ========================================================================= -->
+  <section class="mb-14 relative rounded-2xl overflow-hidden bg-black text-white shadow-2xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
+      
+      <div class="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between z-10">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold tracking-wider uppercase mb-4 text-emerald-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Featured Architectural Residence
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+            Contemporary Alpine Villa
+          </h1>
+          <p class="text-gray-400 text-sm mt-2 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+            Benevento, Italy
+          </p>
+          <div class="mt-6 flex items-baseline gap-2">
+            <span class="text-3xl sm:text-4xl font-black text-white">$1,528,950</span>
+            <span class="text-xs text-gray-400">Turnkey Modernist Estate</span>
+          </div>
+
+          <div class="flex items-center gap-4 mt-6 text-xs text-gray-300">
+            <span><strong>233</strong> m²</span>
+            <span>•</span>
+            <span><strong>2</strong> floors</span>
+            <span>•</span>
+            <span><strong>4</strong> beds</span>
+            <span>•</span>
+            <span><strong>5</strong> baths</span>
+          </div>
+        </div>
+
+        <div class="mt-8 flex items-center gap-4">
+          <a href="/property/benevento-villa" class="bg-white text-black hover:bg-gray-200 text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg transition-colors shadow-lg">
+            Explore Residence →
+          </a>
+          <a href="/property/benevento-villa#mortgage-calculator-section" class="text-xs text-gray-300 hover:text-white underline font-medium">
+            Calculate Mortgage
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 relative h-72 lg:h-auto overflow-hidden">
+        <img src="/static/images/extracted/villa_hero_pool.jpg" alt="Benevento Villa" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent hidden lg:block"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Search & Filter Bar
+       ========================================================================= -->
+  <section class="mb-10 bg-gray-50/80 p-4 sm:p-6 rounded-2xl border border-gray-200">
+    <form action="/catalog" method="GET" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
+      
+      <!-- Keyword / Location -->
+      <div class="lg:col-span-2 space-y-1">
+        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700">Location or Keyword</label>
+        <div class="relative">
+          <input type="text" name="q" value="{{ request.args.get('q', '') }}" placeholder="Benevento, Lake Como, Dolomites, Milan..." class="w-full pl-9 pr-3 py-2.5 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:border-black focus:outline-none">
+          <svg class="w-4 h-4 text-gray-400 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="space-y-1">
+        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700">Category</label>
+        <select name="category" class="w-full py-2.5 px-3 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:border-black focus:outline-none">
+          <option value="">All Categories</option>
+          <option value="Houses" {% if request.args.get('category') == 'Houses' %}selected{% endif %}>Houses & Villas</option>
+          <option value="Townhomes" {% if request.args.get('category') == 'Townhomes' %}selected{% endif %}>Townhomes</option>
+          <option value="Apartments" {% if request.args.get('category') == 'Apartments' %}selected{% endif %}>Apartments & Penthouses</option>
+          <option value="Land" {% if request.args.get('category') == 'Land' %}selected{% endif %}>Land & Estates</option>
+          <option value="Commercial" {% if request.args.get('category') == 'Commercial' %}selected{% endif %}>Commercial</option>
+        </select>
+      </div>
+
+      <!-- Max Price -->
+      <div class="space-y-1">
+        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700">Max Budget</label>
+        <select name="max_price" class="w-full py-2.5 px-3 bg-white border border-gray-300 rounded-lg text-xs font-medium focus:border-black focus:outline-none">
+          <option value="">Any Budget</option>
+          <option value="1500000" {% if request.args.get('max_price') == '1500000' %}selected{% endif %}>Up to $1.5M</option>
+          <option value="2000000" {% if request.args.get('max_price') == '2000000' %}selected{% endif %}>Up to $2.0M</option>
+          <option value="3500000" {% if request.args.get('max_price') == '3500000' %}selected{% endif %}>Up to $3.5M</option>
+          <option value="5000000" {% if request.args.get('max_price') == '5000000' %}selected{% endif %}>Up to $5.0M</option>
+        </select>
+      </div>
+
+      <!-- Submit Filter -->
+      <div>
+        <button type="submit" class="w-full bg-black text-white hover:bg-gray-800 text-xs font-bold uppercase tracking-wider py-2.5 rounded-lg transition-colors shadow">
+          Apply Filters
+        </button>
+      </div>
+
+    </form>
+  </section>
+
+  <!-- =========================================================================
+       Catalog Properties Grid
+       ========================================================================= -->
+  <section>
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">Curated Residences for Sale</h2>
+        <p class="text-xs text-gray-500 mt-1">Displaying {{ properties|length }} architectural properties</p>
+      </div>
+      
+      <!-- Category Pills -->
+      <div class="hidden sm:flex items-center space-x-2 text-xs font-medium">
+        <a href="/catalog" class="px-3 py-1.5 rounded-full {% if not request.args.get('category') %}bg-black text-white{% else %}bg-gray-100 text-gray-700 hover:bg-gray-200{% endif %}">
+          All
+        </a>
+        <a href="/catalog?category=Houses" class="px-3 py-1.5 rounded-full {% if request.args.get('category') == 'Houses' %}bg-black text-white{% else %}bg-gray-100 text-gray-700 hover:bg-gray-200{% endif %}">
+          Houses
+        </a>
+        <a href="/catalog?category=Apartments" class="px-3 py-1.5 rounded-full {% if request.args.get('category') == 'Apartments' %}bg-black text-white{% else %}bg-gray-100 text-gray-700 hover:bg-gray-200{% endif %}">
+          Apartments
+        </a>
+      </div>
+    </div>
+
+    {% if properties %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for prop in properties %}
+      <div class="group bg-white rounded-2xl overflow-hidden border border-gray-200/90 hover:shadow-xl transition-all duration-300 flex flex-col">
+        
+        <!-- Image Box -->
+        <a href="/property/{{ prop.id }}" class="block aspect-[16/10] overflow-hidden bg-gray-100 relative">
+          <img src="{{ prop.hero_images.main }}" alt="{{ prop.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          
+          <div class="absolute top-3 left-3 bg-black/75 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded">
+            {{ prop.category }}
+          </div>
+
+          <div class="absolute top-3 right-3 bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold px-3 py-1 rounded-md shadow">
+            {{ prop.price_formatted }}
+          </div>
+
+          {% if prop.tags %}
+          <div class="absolute bottom-3 left-3 flex items-center gap-1.5">
+            {% for tag in prop.tags %}
+            <span class="bg-black/60 backdrop-blur-sm text-white text-[10px] font-medium px-2 py-0.5 rounded">
+              {{ tag }}
+            </span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </a>
+
+        <!-- Content Box -->
+        <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between text-xs text-gray-500 font-medium">
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                {{ prop.location }}
+              </span>
+              <span class="text-[11px] text-gray-400">{{ prop.year_built }}</span>
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 group-hover:text-black mt-2 leading-snug">
+              <a href="/property/{{ prop.id }}" class="hover:underline">
+                {{ prop.title }}
+              </a>
+            </h3>
+
+            <p class="text-xs text-gray-500 line-clamp-2 mt-1.5 leading-relaxed">
+              {{ prop.description }}
+            </p>
+          </div>
+
+          <!-- Specs row -->
+          <div class="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-700">
+            <div class="flex items-center gap-4">
+              <span><strong>{{ prop.area_sqm }}</strong> m²</span>
+              <span><strong>{{ prop.beds }}</strong> beds</span>
+              <span><strong>{{ prop.baths }}</strong> baths</span>
+            </div>
+
+            <a href="/property/{{ prop.id }}" class="font-bold text-black text-xs hover:underline flex items-center gap-1">
+              Details →
+            </a>
+          </div>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-16 bg-gray-50 rounded-2xl border border-gray-200">
+      <h3 class="text-lg font-bold text-gray-800">No residences matched your criteria</h3>
+      <p class="text-xs text-gray-500 mt-1">Try broadening your search or resetting category filters.</p>
+      <a href="/catalog" class="inline-block mt-4 text-xs font-semibold bg-black text-white px-4 py-2 rounded-lg">Reset Filters</a>
+    </div>
+    {% endif %}
+  </section>
+
+</div>
+{% endblock %}
+

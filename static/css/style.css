@@ -1,0 +1,217 @@
+/* ==========================================================================
+   URBN Luxury Real Estate - Custom Design Stylesheet
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+
+:root {
+  --font-primary:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-brand: "Space Grotesk", sans-serif;
+  --color-dark: #0f1115;
+  --color-gray-soft: #f8fafc;
+  --color-border: #e2e8f0;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: #111827;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-brand {
+  font-family: var(--font-brand);
+  letter-spacing: -0.04em;
+}
+
+/* Gallery Layout matching reference screenshot */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 6px;
+  height: 480px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: 1.5fr 1fr;
+    height: 400px;
+  }
+  .gallery-col-3 {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    height: 320px;
+  }
+  .gallery-col-2,
+  .gallery-col-3 {
+    display: none;
+  }
+}
+
+.gallery-photo-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  cursor: pointer;
+}
+
+.gallery-photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-photo-container:hover img {
+  transform: scale(1.025);
+}
+
+/* Middle stacked images */
+.gallery-stacked-col {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  height: 100%;
+}
+
+/* Show All Photos button badge in the bottom-right corner */
+.show-all-photos-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 17, 21, 0.92);
+  color: #ffffff;
+  padding: 12px 18px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(4px);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+  z-index: 10;
+}
+
+.show-all-photos-badge:hover {
+  background: #000000;
+}
+
+/* Underline link like in screenshot */
+.link-underline {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  color: #111827;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.link-underline:hover {
+  color: #4b5563;
+}
+
+/* Custom Range Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  outline: none;
+  transition: background 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0f1115;
+  cursor: pointer;
+  border: 3px solid #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(10, 12, 16, 0.96);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Toast notifications */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #0f1115;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

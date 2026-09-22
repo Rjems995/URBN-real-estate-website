@@ -1,0 +1,1175 @@
+{% extends "base.html" %} {% block title %}{{ property.title }} — {{
+property.price_formatted }} | URBN Real Estate{% endblock %} {% block content %}
+<div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
+  <!-- =========================================================================
+       1. Hero Architectural Photo Gallery (Exact Reference Layout)
+       ========================================================================= -->
+  <section class="gallery-grid select-none" id="property-gallery">
+    <!-- Left: Main Large Hero Photo -->
+    <div
+      class="gallery-photo-container"
+      data-gallery-index="0"
+      title="Click to view full photo"
+    >
+      <img
+        src="{{ property.hero_images.main }}"
+        alt="{{ property.title }} - Main Panorama"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- Center: Two Stacked Photos -->
+    <div class="gallery-stacked-col">
+      <div
+        class="gallery-photo-container"
+        data-gallery-index="1"
+        title="Click to view full photo"
+      >
+        <img
+          src="{{ property.hero_images.mid_top }}"
+          alt="{{ property.title }} - Balcony View"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div
+        class="gallery-photo-container"
+        data-gallery-index="2"
+        title="Click to view full photo"
+      >
+        <img
+          src="{{ property.hero_images.mid_bottom }}"
+          alt="{{ property.title }} - Hillside View"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Right: Vertical Portrait Photo + 'Show All Photos' Badge -->
+    <div
+      class="gallery-photo-container gallery-col-3"
+      data-gallery-index="3"
+      title="Click to view full photo"
+    >
+      <img
+        src="{{ property.hero_images.right }}"
+        alt="{{ property.title }} - Concrete Entrance Facade"
+        class="w-full h-full object-cover"
+      />
+
+      <!-- Show All Photos 32 Badge Overlay -->
+      <button
+        id="btn-show-all-photos"
+        class="show-all-photos-badge hover:bg-black/95 transition-all"
+      >
+        <span class="text-sm font-medium tracking-wide">Show All Photos</span>
+        <span class="text-sm font-semibold tracking-wider ml-4 text-gray-300"
+          >{{ property.total_photos }}</span
+        >
+      </button>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. Action Bar & Location Directly Below Gallery
+       ========================================================================= -->
+  <div
+    class="flex items-center justify-between py-4 border-b border-gray-100 text-sm font-medium text-gray-800"
+  >
+    <!-- Left Actions: Save & Share -->
+    <div class="flex items-center space-x-6">
+      <button
+        id="btn-save-property"
+        data-property-id="{{ property.id }}"
+        class="flex items-center gap-2 hover:text-black transition-colors"
+      >
+        <svg
+          class="w-4 h-4 text-gray-900 transition-colors"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+          ></path>
+        </svg>
+        <span class="save-text">Save</span>
+      </button>
+
+      <button
+        id="btn-share-property"
+        class="flex items-center gap-2 hover:text-black transition-colors"
+      >
+        <svg
+          class="w-4 h-4 text-gray-900"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+          ></path>
+        </svg>
+        <span>Share</span>
+      </button>
+    </div>
+
+    <!-- Right: Location -->
+    <div class="flex items-center gap-1.5 text-gray-700 font-medium">
+      <svg
+        class="w-4 h-4 text-gray-900 flex-shrink-0"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+        ></path>
+      </svg>
+      <span>{{ property.location }}</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       3. Main Details & Overview Row (Screenshot Layout)
+       ========================================================================= -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 pt-8 pb-12">
+    <!-- Left Column: Price, Mortgage Trigger, Agency & Contact -->
+    <div class="lg:col-span-5 space-y-6">
+      <div>
+        <div
+          id="property-price-raw"
+          data-price="{{ property.price }}"
+          class="text-4xl sm:text-5xl font-bold tracking-tight text-black"
+        >
+          {{ property.price_formatted }}
+        </div>
+        <div class="mt-2">
+          <a
+            href="#mortgage-calculator-section"
+            id="link-calculate-mortgage"
+            class="link-underline text-sm font-medium"
+          >
+            Calculate mortgage
+          </a>
+        </div>
+      </div>
+
+      <!-- Estate Agency Card matching screenshot -->
+      <div class="pt-6">
+        <div
+          class="flex items-center justify-between p-2.5 bg-gray-50/80 rounded-xl border border-gray-100 max-w-sm"
+        >
+          <div class="flex items-center space-x-3.5">
+            <div
+              class="w-12 h-12 rounded-lg bg-black flex items-center justify-center overflow-hidden border border-gray-200"
+            >
+              <img
+                src="{{ property.agency.logo }}"
+                alt="{{ property.agency.name }}"
+                class="w-10 h-10 object-contain"
+              />
+            </div>
+            <div>
+              <div
+                class="text-[11px] text-gray-500 font-medium tracking-wide leading-none mb-1"
+              >
+                {{ property.agency.tagline }}
+              </div>
+              <div
+                class="text-sm font-bold text-gray-900 flex items-center gap-1 leading-none"
+              >
+                {{ property.agency.name }}
+                <span class="text-amber-500 text-xs"
+                  >{{ property.agency.badge }}</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <button
+            id="btn-contact-agent"
+            class="bg-black hover:bg-gray-800 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition-colors shadow-sm"
+          >
+            Contact Agent
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Specs, Technical link, Amenities, Description -->
+    <div class="lg:col-span-7 space-y-6">
+      <!-- Key Metric Numbers -->
+      <div class="flex flex-wrap items-baseline gap-x-8 gap-y-3">
+        <div class="flex items-baseline gap-1.5">
+          <span class="text-3xl sm:text-4xl font-bold tracking-tight text-black"
+            >{{ property.area_sqm }}</span
+          >
+          <span class="text-sm font-medium text-gray-700">m²</span>
+        </div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="text-3xl sm:text-4xl font-bold tracking-tight text-black"
+            >{{ property.floors }}</span
+          >
+          <span class="text-sm font-medium text-gray-700">floors</span>
+        </div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="text-3xl sm:text-4xl font-bold tracking-tight text-black"
+            >{{ property.beds }}</span
+          >
+          <span class="text-sm font-medium text-gray-700">beds</span>
+        </div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="text-3xl sm:text-4xl font-bold tracking-tight text-black"
+            >{{ property.baths }}</span
+          >
+          <span class="text-sm font-medium text-gray-700">baths</span>
+        </div>
+      </div>
+
+      <!-- Technical specifications link -->
+      <div>
+        <a
+          href="#technical-specifications"
+          id="link-tech-specs"
+          class="link-underline text-sm font-medium"
+        >
+          All Technical specifications
+        </a>
+      </div>
+
+      <!-- Amenities tags with icons -->
+      <div
+        class="flex flex-wrap items-center gap-6 pt-2 text-sm font-medium text-gray-800"
+      >
+        {% for tag in property.tags %}
+        <div class="flex items-center gap-2">
+          {% if 'pool' in tag.lower() or 'lake' in tag.lower() %}
+          <svg
+            class="w-5 h-5 text-gray-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M3 15c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2M3 9c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"
+            ></path>
+          </svg>
+          {% elif 'mountain' in tag.lower() %}
+          <svg
+            class="w-5 h-5 text-gray-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M3 20h18L14 7l-4 6-3-4-4 11z"
+            ></path>
+          </svg>
+          {% else %}
+          <svg
+            class="w-5 h-5 text-gray-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+          {% endif %}
+          <span>{{ tag }}</span>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Narrative Description Paragraph -->
+      <div class="pt-2 text-gray-600 text-[14.5px] leading-relaxed">
+        <p id="desc-preview">{{ property.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       4. Interactive Mortgage Calculator Section
+       ========================================================================= -->
+  <section
+    id="mortgage-calculator-section"
+    class="my-16 bg-gray-50/80 rounded-2xl border border-gray-200/80 p-6 sm:p-10 transition-all"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div
+        class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-gray-200"
+      >
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-500"
+            >Financing Simulator</span
+          >
+          <h2
+            class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 mt-1"
+          >
+            Mortgage Calculator
+          </h2>
+          <p class="text-xs text-gray-500 mt-1">
+            Calculate your estimated monthly investment for this {{
+            property.city }} estate.
+          </p>
+        </div>
+
+        <div
+          class="text-left sm:text-right bg-white p-4 rounded-xl border border-gray-200 shadow-sm"
+        >
+          <div class="text-xs text-gray-500 font-medium">
+            Estimated Monthly Payment
+          </div>
+          <div
+            class="text-3xl font-extrabold text-black"
+            id="calc-monthly-total"
+          >
+            $7,725
+          </div>
+          <div class="text-[11px] text-gray-400">
+            Includes P&I, Taxes, & Insurance
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress bar visual breakdown -->
+      <div class="mt-6">
+        <div class="h-3 w-full bg-gray-200 rounded-full flex overflow-hidden">
+          <div
+            id="calc-bar-pi"
+            class="bg-black transition-all duration-300"
+            style="width: 78%"
+            title="Principal & Interest"
+          ></div>
+          <div
+            id="calc-bar-tax"
+            class="bg-emerald-600 transition-all duration-300"
+            style="width: 14%"
+            title="Property Tax"
+          ></div>
+          <div
+            id="calc-bar-insurance"
+            class="bg-amber-500 transition-all duration-300"
+            style="width: 8%"
+            title="Home Insurance"
+          ></div>
+        </div>
+
+        <div
+          class="flex flex-wrap items-center justify-between text-xs font-medium text-gray-600 mt-3 pt-1"
+        >
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-black"></span>
+            <span
+              >Principal & Interest:
+              <strong id="calc-breakdown-pi" class="text-black"
+                >$6,045</strong
+              ></span
+            >
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+            <span
+              >Property Tax:
+              <strong id="calc-breakdown-tax" class="text-black"
+                >$1,080</strong
+              ></span
+            >
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+            <span
+              >Homeowners Insurance:
+              <strong id="calc-breakdown-insurance" class="text-black"
+                >$200</strong
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculator Inputs Form -->
+      <form
+        id="mortgage-calculator"
+        class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"
+      >
+        <!-- Home Price -->
+        <div class="space-y-2">
+          <label
+            class="block text-xs font-bold uppercase tracking-wider text-gray-700"
+            >Home Price</label
+          >
+          <div class="relative">
+            <span class="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+            <input
+              type="text"
+              id="calc-price"
+              value="1,528,950"
+              class="w-full pl-7 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-semibold text-gray-900 focus:border-black focus:outline-none"
+            />
+          </div>
+          <input
+            type="range"
+            id="calc-price-slider"
+            min="500000"
+            max="6000000"
+            step="25000"
+            value="{{ property.price }}"
+          />
+        </div>
+
+        <!-- Down Payment -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <label
+              class="block text-xs font-bold uppercase tracking-wider text-gray-700"
+              >Down Payment</label
+            >
+            <span id="calc-down-percent" class="text-xs font-bold text-gray-900"
+              >20%</span
+            >
+          </div>
+          <div class="relative">
+            <span class="absolute left-3 top-2.5 text-gray-400 text-sm">$</span>
+            <input
+              type="text"
+              id="calc-down-payment"
+              value="305,790"
+              class="w-full pl-7 pr-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-semibold text-gray-900 focus:border-black focus:outline-none"
+            />
+          </div>
+          <input
+            type="range"
+            id="calc-down-payment-slider"
+            min="5"
+            max="50"
+            step="1"
+            value="20"
+          />
+        </div>
+
+        <!-- Interest Rate & Loan Term -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <label
+              class="block text-xs font-bold uppercase tracking-wider text-gray-700"
+              >Interest Rate</label
+            >
+            <div class="flex items-center space-x-2 text-xs font-semibold">
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="calc-term"
+                  value="30"
+                  checked
+                  class="accent-black mr-1"
+                />
+                30 Yrs
+              </label>
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="calc-term"
+                  value="15"
+                  class="accent-black mr-1"
+                />
+                15 Yrs
+              </label>
+            </div>
+          </div>
+          <div class="relative">
+            <input
+              type="number"
+              id="calc-interest"
+              step="0.1"
+              value="6.5"
+              class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-semibold text-gray-900 focus:border-black focus:outline-none"
+            />
+            <span class="absolute right-3 top-2.5 text-gray-400 text-sm"
+              >%</span
+            >
+          </div>
+          <input
+            type="range"
+            id="calc-interest-slider"
+            min="2.5"
+            max="11.0"
+            step="0.1"
+            value="6.5"
+          />
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. Technical Specifications Detailed Grid
+       ========================================================================= -->
+  <section
+    id="technical-specifications"
+    class="my-16 border-t border-gray-200 pt-12"
+  >
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-gray-500"
+          >Architectural Dossier</span
+        >
+        <h2
+          class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 mt-1"
+        >
+          Technical Specifications
+        </h2>
+      </div>
+      <span
+        class="text-xs bg-black text-white px-3 py-1.5 rounded font-mono font-medium"
+        >Ref: BEN-2024-VR</span
+      >
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for category, specs in property.technical_specifications.items() %}
+      <div class="bg-gray-50/70 p-6 rounded-xl border border-gray-200/70">
+        <h3
+          class="text-xs font-bold uppercase tracking-wider text-gray-900 pb-3 mb-4 border-b border-gray-200"
+        >
+          {{ category }}
+        </h3>
+        <dl class="space-y-3 text-xs">
+          {% for label, val in specs.items() %}
+          <div>
+            <dt class="text-gray-500 font-medium">{{ label }}</dt>
+            <dd class="text-gray-900 font-semibold mt-0.5">{{ val }}</dd>
+          </div>
+          {% endfor %}
+        </dl>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. Floor Plans & Spatial Layout
+       ========================================================================= -->
+  {% if property.floor_plans %}
+  <section class="my-16 border-t border-gray-200 pt-12">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-gray-500"
+          >Architectural Layouts</span
+        >
+        <h2
+          class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 mt-1"
+        >
+          Floor Plans
+        </h2>
+      </div>
+      <div class="mt-4 sm:mt-0 flex space-x-2">
+        {% for plan in property.floor_plans %}
+        <button
+          onclick="switchFloorPlan({{ loop.index0 }})"
+          id="fp-btn-{{ loop.index0 }}"
+          class="floorplan-btn px-4 py-2 rounded-lg text-xs font-semibold border transition-all {% if loop.first %}bg-black text-white border-black{% else %}bg-white text-gray-700 border-gray-200 hover:border-black{% endif %}"
+        >
+          {{ plan.level }}
+        </button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div
+      class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden p-6 sm:p-8"
+    >
+      {% for plan in property.floor_plans %}
+      <div
+        id="fp-content-{{ loop.index0 }}"
+        class="floorplan-content {% if not loop.first %}hidden{% endif %}"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div
+            class="lg:col-span-8 rounded-xl overflow-hidden bg-white border border-gray-200 shadow-sm max-h-[480px]"
+          >
+            <img
+              src="{{ plan.image }}"
+              alt="{{ plan.level }}"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="lg:col-span-4 space-y-4">
+            <div
+              class="inline-block bg-white text-xs font-bold px-3 py-1 rounded-full border border-gray-200"
+            >
+              Area: {{ plan.area }}
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">{{ plan.level }}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              {{ plan.description }}
+            </p>
+            <div
+              class="pt-4 border-t border-gray-200 text-xs text-gray-500 space-y-1"
+            >
+              <div>• Schuco triple-glazed balcony integration</div>
+              <div>• Fully integrated KNX zone control</div>
+              <div>• Acoustic isolation partitions (52 dB)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <script>
+    function switchFloorPlan(index) {
+      document.querySelectorAll(".floorplan-btn").forEach((btn, i) => {
+        if (i === index) {
+          btn.className =
+            "floorplan-btn px-4 py-2 rounded-lg text-xs font-semibold border transition-all bg-black text-white border-black";
+        } else {
+          btn.className =
+            "floorplan-btn px-4 py-2 rounded-lg text-xs font-semibold border transition-all bg-white text-gray-700 border-gray-200 hover:border-black";
+        }
+      });
+      document.querySelectorAll(".floorplan-content").forEach((content, i) => {
+        content.classList.toggle("hidden", i !== index);
+      });
+    }
+  </script>
+  {% endif %}
+
+  <!-- =========================================================================
+       7. Location & Neighborhood
+       ========================================================================= -->
+  <section class="my-16 border-t border-gray-200 pt-12">
+    <div class="mb-8">
+      <span class="text-xs font-bold uppercase tracking-wider text-gray-500"
+        >Geographic Context</span
+      >
+      <h2
+        class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 mt-1"
+      >
+        Location & Setting
+      </h2>
+      <p class="text-sm text-gray-600 mt-1">
+        Benevento, Campania, Italy — nestled in the scenic valleys of the
+        Southern Apennines.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div
+        class="lg:col-span-2 rounded-2xl overflow-hidden border border-gray-200 bg-gray-100 relative min-h-[340px]"
+      >
+        <!-- High-res simulated map imagery / scenic terrain -->
+        <img
+          src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80"
+          alt="Benevento Landscape"
+          class="w-full h-full object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6"
+        >
+          <div class="text-white">
+            <div class="flex items-center gap-2 text-sm font-semibold">
+              <span
+                class="w-3 h-3 bg-red-500 rounded-full animate-pulse"
+              ></span>
+              Villa Estate Coordinates: 41°07'45.2"N 14°46'33.8"E
+            </div>
+            <p class="text-xs text-gray-300 mt-1">
+              Privileged hillside sanctuary with 270° views across the lake
+              valley.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 space-y-4">
+        <h3
+          class="text-sm font-bold uppercase tracking-wider text-gray-900 border-b border-gray-200 pb-2"
+        >
+          Proximity Highlights
+        </h3>
+        <ul class="space-y-3 text-xs text-gray-700">
+          <li class="flex items-center justify-between">
+            <span class="text-gray-500">Lago di San Giorgio</span>
+            <strong class="text-black">8 min drive</strong>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="text-gray-500">Benevento Historic Center</span>
+            <strong class="text-black">12 min drive</strong>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="text-gray-500">Naples Int. Airport (NAP)</span>
+            <strong class="text-black">55 min drive</strong>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="text-gray-500">Amalfi Coast</span>
+            <strong class="text-black">70 min drive</strong>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="text-gray-500">High-Speed Rail (Frecciarossa)</span>
+            <strong class="text-black">15 min</strong>
+          </li>
+        </ul>
+        <div class="pt-4 border-t border-gray-200">
+          <button
+            onclick="
+              showToast(
+                'Private helipad landing coordinates dispatched upon inquiry',
+              )
+            "
+            class="w-full bg-white hover:bg-gray-100 text-xs font-semibold py-2.5 rounded-lg border border-gray-300 text-gray-800 transition-colors"
+          >
+            Request Private Arrival Guide
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. Similar Architectural Properties
+       ========================================================================= -->
+  <section class="my-16 border-t border-gray-200 pt-12">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-gray-500"
+          >Curated Portfolio</span
+        >
+        <h2
+          class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 mt-1"
+        >
+          Similar Residences
+        </h2>
+      </div>
+      <a
+        href="/catalog"
+        class="text-xs font-bold uppercase tracking-wider text-black hover:underline"
+      >
+        View All Properties →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {% for item in similar_properties %}
+      <a
+        href="/property/{{ item.id }}"
+        class="group block bg-white rounded-xl overflow-hidden border border-gray-200/80 hover:shadow-xl transition-all duration-300"
+      >
+        <div class="aspect-[16/10] overflow-hidden bg-gray-100 relative">
+          <img
+            src="{{ item.hero_images.main }}"
+            alt="{{ item.title }}"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div
+            class="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded"
+          >
+            {{ item.price_formatted }}
+          </div>
+        </div>
+        <div class="p-5">
+          <div
+            class="text-[11px] font-bold uppercase tracking-wider text-gray-400"
+          >
+            {{ item.location }}
+          </div>
+          <h3
+            class="font-bold text-gray-900 group-hover:text-black mt-1 text-base"
+          >
+            {{ item.title }}
+          </h3>
+          <div
+            class="flex items-center gap-4 text-xs text-gray-500 mt-3 pt-3 border-t border-gray-100"
+          >
+            <span>{{ item.area_sqm }} m²</span>
+            <span>{{ item.beds }} beds</span>
+            <span>{{ item.baths }} baths</span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<!-- =========================================================================
+     MODAL: Full Lightbox Gallery (Show All Photos 32)
+     ========================================================================= -->
+<div id="gallery-lightbox" class="lightbox-modal">
+  <!-- Top Bar -->
+  <div
+    class="flex items-center justify-between px-6 py-4 border-b border-white/10 text-white z-20"
+  >
+    <div class="flex items-center space-x-4">
+      <span class="font-brand font-bold tracking-wider text-lg">URBN</span>
+      <span class="text-gray-400 text-sm">|</span>
+      <span class="text-xs font-medium text-gray-300" id="lightbox-counter"
+        >1 / {{ property.total_photos }}</span
+      >
+    </div>
+
+    <div
+      class="text-sm font-semibold text-gray-200 truncate max-w-md hidden sm:block"
+      id="lightbox-caption"
+    >
+      Panoramic South Facade
+    </div>
+
+    <button
+      id="lightbox-close"
+      class="p-2 text-gray-400 hover:text-white rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Main Image Stage -->
+  <div
+    class="relative flex-grow flex items-center justify-center p-4 sm:p-8 overflow-hidden"
+  >
+    <button
+      id="lightbox-prev"
+      class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 p-3 text-white bg-black/60 hover:bg-black rounded-full transition-all z-20"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        ></path>
+      </svg>
+    </button>
+
+    <div
+      class="max-w-6xl max-h-[75vh] flex items-center justify-center select-none"
+    >
+      <img
+        id="lightbox-current-img"
+        src="{{ property.hero_images.main }}"
+        alt="Lightbox view"
+        class="max-w-full max-h-[75vh] object-contain rounded-md shadow-2xl transition-all duration-200"
+      />
+    </div>
+
+    <button
+      id="lightbox-next"
+      class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 p-3 text-white bg-black/60 hover:bg-black rounded-full transition-all z-20"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Bottom Thumbnails Strip -->
+  <div class="p-4 border-t border-white/10 bg-black/40 z-20">
+    <div
+      id="lightbox-thumbs"
+      class="flex items-center space-x-2 overflow-x-auto py-2 max-w-4xl mx-auto scrollbar-none"
+    >
+      <!-- Generated via JS -->
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================================
+     MODAL: Contact Agent & Schedule Tour
+     ========================================================================= -->
+<div
+  id="contact-modal"
+  class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4"
+>
+  <div
+    class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 sm:p-8 relative"
+  >
+    <button
+      id="contact-modal-close"
+      class="absolute top-5 right-5 text-gray-400 hover:text-black"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </button>
+
+    <div class="flex items-center space-x-4 mb-6 pb-4 border-b border-gray-100">
+      <div
+        class="w-14 h-14 rounded-full overflow-hidden bg-gray-100 border border-gray-200"
+      >
+        <img
+          src="{{ property.agency.agent_photo }}"
+          alt="{{ property.agency.agent_name }}"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div>
+        <div
+          class="text-xs text-gray-500 font-semibold tracking-wide uppercase"
+        >
+          {{ property.agency.name }} {{ property.agency.badge }}
+        </div>
+        <h3 class="text-lg font-bold text-gray-900">
+          {{ property.agency.agent_name }}
+        </h3>
+        <p class="text-xs text-gray-600">
+          {{ property.agency.agent_role }} • {{ property.agency.agent_phone }}
+        </p>
+      </div>
+    </div>
+
+    <form id="contact-agent-form" class="space-y-4">
+      <input type="hidden" name="property_id" value="{{ property.id }}" />
+      <input type="hidden" name="property_title" value="{{ property.title }}" />
+
+      <div>
+        <label
+          class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1"
+          >Inquiry Type</label
+        >
+        <div class="grid grid-cols-2 gap-2">
+          <label class="cursor-pointer">
+            <input
+              type="radio"
+              name="inquiry_type"
+              value="Schedule Showing"
+              checked
+              class="peer sr-only"
+            />
+            <div
+              class="text-center py-2 px-3 text-xs font-semibold rounded-lg border border-gray-200 peer-checked:bg-black peer-checked:text-white peer-checked:border-black transition-all"
+            >
+              Private Showing
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input
+              type="radio"
+              name="inquiry_type"
+              value="Technical Dossier"
+              class="peer sr-only"
+            />
+            <div
+              class="text-center py-2 px-3 text-xs font-semibold rounded-lg border border-gray-200 peer-checked:bg-black peer-checked:text-white peer-checked:border-black transition-all"
+            >
+              Request Dossier
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-1"
+            >Your Name</label
+          >
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder="Full Name"
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-xs focus:border-black focus:outline-none"
+          />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-1"
+            >Phone Number</label
+          >
+          <input
+            type="tel"
+            name="phone"
+            placeholder="+1 (555) 000-0000"
+            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-xs focus:border-black focus:outline-none"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-gray-700 uppercase mb-1"
+          >Email Address</label
+        >
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="you@domain.com"
+          class="w-full border border-gray-300 rounded-lg px-3 py-2 text-xs focus:border-black focus:outline-none"
+        />
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-gray-700 uppercase mb-1"
+          >Preferred Date for Tour</label
+        >
+        <input
+          type="date"
+          name="preferred_date"
+          class="w-full border border-gray-300 rounded-lg px-3 py-2 text-xs focus:border-black focus:outline-none"
+        />
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-gray-700 uppercase mb-1"
+          >Message to Agent</label
+        >
+        <textarea
+          name="message"
+          rows="3"
+          class="w-full border border-gray-300 rounded-lg p-3 text-xs focus:border-black focus:outline-none"
+          placeholder="I would like more information on the Benevento modernist villa..."
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 rounded-lg text-xs tracking-wider uppercase transition-colors shadow-md"
+      >
+        Send Inquiry to Floors Agency
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- =========================================================================
+     MODAL: Share Property
+     ========================================================================= -->
+<div
+  id="share-modal"
+  class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4"
+>
+  <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 relative">
+    <button
+      id="share-modal-close"
+      class="absolute top-4 right-4 text-gray-400 hover:text-black"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </button>
+    <h3 class="text-lg font-bold text-gray-900 mb-1">Share this Residence</h3>
+    <p class="text-xs text-gray-500 mb-4">
+      {{ property.title }} • {{ property.location }}
+    </p>
+
+    <div
+      class="flex items-center space-x-2 p-2 bg-gray-50 rounded-lg border border-gray-200 mb-4"
+    >
+      <input
+        type="text"
+        readonly
+        id="share-link-input"
+        value="https://urbn-estates.com/property/{{ property.id }}"
+        class="bg-transparent text-xs text-gray-600 flex-grow px-2 focus:outline-none select-all"
+      />
+      <button
+        id="btn-copy-link"
+        class="bg-black text-white text-xs font-semibold px-3 py-1.5 rounded hover:bg-gray-800 transition-colors"
+      >
+        Copy Link
+      </button>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 text-center">
+      <a
+        href="https://api.whatsapp.com/send?text=Check%20out%20this%20stunning%20villa%20on%20URBN"
+        target="_blank"
+        class="p-3 bg-gray-50 rounded-lg hover:bg-gray-100 text-xs font-medium text-gray-700 transition-colors"
+      >
+        WhatsApp
+      </a>
+      <a
+        href="https://twitter.com/intent/tweet?text=Architectural%20residence%20in%20Benevento&url=https://urbn-estates.com"
+        target="_blank"
+        class="p-3 bg-gray-50 rounded-lg hover:bg-gray-100 text-xs font-medium text-gray-700 transition-colors"
+      >
+        Twitter / X
+      </a>
+      <a
+        href="mailto:?subject=URBN%20Property%20Share&body=Take%20a%20look%20at%20this%20residence"
+        class="p-3 bg-gray-50 rounded-lg hover:bg-gray-100 text-xs font-medium text-gray-700 transition-colors"
+      >
+        Email
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox photo gallery state payload -->
+<script>
+  window.propertyPhotos = {{ property.gallery_photos | tojson }};
+</script>
+
+{% endblock %} {% block extra_scripts %}
+<script src="/static/js/calculator.js"></script>
+{% endblock %}
